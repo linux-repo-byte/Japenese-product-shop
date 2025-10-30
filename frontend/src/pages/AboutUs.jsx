@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Heart, Globe, Users, TrendingUp } from "lucide-react";
 
 const AboutUs = () => {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
   const values = [
     {
       icon: <Heart className="w-8 h-8" />,
@@ -57,25 +62,42 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-fit">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            {/* <Badge className="mb-6 bg-primary text-white">
-              Our Story
-            </Badge> */}
-            <h1 className="font-hakio text-5xl sm:text-6xl mb-6 text-foreground text-brush">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/japanese-background.png')`,
+              backgroundPosition: "center 20%",
+            }}
+          />
+          {/* Gradient Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 " />
+        </div>
+        {/* Hero Content */}
+        <div
+          className={`container mx-auto px-4 z-10 text-center transition-all duration-1000 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Glass Blur Effect */}
+          <div className="inline-block bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl">
+            <h1 className="font-hakio text-5xl sm:text-6xl lg:text-7xl mb-6 text-white text-brush">
               Bridging Cultures Through
               <span className="text-primary block mt-2">Authentic Flavors</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg sm:text-xl text-white max-w-2xl mx-auto mb-8 leading-relaxed">
               Japenese Seafood Shop was born from a simple passion: to share the
               exquisite taste and tradition of Japanese seafood with food lovers
               around the world.
             </p>
           </div>
         </div>
+        {/* Decorative Elements */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
       {/* Story Section */}
@@ -87,13 +109,13 @@ const AboutUs = () => {
                 A Journey of Taste
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Founded by Nepali youths with enthusiams towords Japanese
+                Founded by Nepali youths with entusiash towords Japanese
                 culture, we bridge Himalayan and Japanese cultures with premium
                 imports like matcha, wasabi, miso and other seafood ingredients
                 for chefs and home cooks.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                With over 200 curated products, sustainable sourcing, and
+                With over 100+ curated products, sustainable sourcing, and
                 Nepal-wide delivery, we're your go-to for umami adventures.
                 Visit us in Thamel or online today!
               </p>
@@ -181,7 +203,7 @@ const AboutUs = () => {
             </div>
             <div className="brush-reveal" style={{ animationDelay: "0.2s" }}>
               <div className="font-hakio text-5xl mb-2 text-primary-light">
-                20+
+                100+
               </div>
               <div className="text-white/80">Products</div>
             </div>
@@ -194,6 +216,35 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      {/* Custom CSS for Bounce Animations */}
+      <style jsx>{`
+        @keyframes bounceIn {
+          0% {
+            opacity: 0;
+            transform: translateY(100px) scale(0.3);
+          }
+          50% {
+            opacity: 1;
+            transform: translateY(-20px) scale(1.05);
+          }
+          70% {
+            transform: translateY(10px) scale(0.9);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        .animate-bounce-in {
+          animation: bounceIn 1.2s ease-out;
+        }
+
+        .animate-bounce-in-delayed {
+          animation: bounceIn 1.2s ease-out 0.3s both;
+        }
+      `}</style>
     </div>
   );
 };
