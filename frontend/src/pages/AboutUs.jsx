@@ -117,7 +117,6 @@ const AboutUs = () => {
               <p className="text-muted-foreground leading-relaxed">
                 With over 100+ curated products, sustainable sourcing, and
                 Nepal-wide delivery, we're your go-to for umami adventures.
-                Visit us in Thamel or online today!
               </p>
             </div>
             <div className="relative">

@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { Button } from "./ui/button";
+import logo from '../assets/image-logo.png';
+
 
 export const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +14,8 @@ export const Layout = ({ children }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -21,9 +23,9 @@ export const Layout = ({ children }) => {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -32,24 +34,43 @@ export const Layout = ({ children }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-background/95 backdrop-blur-md shadow-ink'
-            : 'bg-transparent'
+            ? "bg-background/95 backdrop-blur-md shadow-ink"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 group">
-              <div className="relative">
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-hakio text-xl transition-transform group-hover:scale-110">
-                  海 
-                </div>
-                <div className="absolute inset-0 rounded-full bg-primary opacity-50 blur-md group-hover:opacity-70 transition-opacity"></div>
-              </div>
-              <span className="font-hakio text-2xl text-foreground group-hover:text-primary transition-colors">
-                Japenese Seafoods Shop
-              </span>
-            </Link>
+    
+{/* Logo */}
+{/* <Link to="/" className="flex items-center space-x-2 group">
+  <div className="relative">
+    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
+      <img 
+        src={logo} 
+        alt="Japanese Seafoods Shop Logo"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+  <span className="font-hakio text-2xl text-foreground group-hover:text-primary transition-colors">
+    Japanese Seafoods Shop
+  </span>
+</Link> */}
+
+
+{/* Logo */}
+<Link to="/" className="flex items-center space-x-2 group">
+  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+    <img 
+      src={logo}
+      alt="Japanese Seafoods Shop Logo"
+      className="w-full h-full object-cover"
+    />
+  </div>
+  {/* <span className="font-hakio text-2xl text-foreground group-hover:text-primary transition-colors">
+  </span> */}
+</Link>
+
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -59,14 +80,16 @@ export const Layout = ({ children }) => {
                   to={link.path}
                   className={`text-sm uppercase tracking-wider transition-colors relative group ${
                     location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                 >
                   {link.name}
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all ${
-                      location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                      location.pathname === link.path
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
                     }`}
                   ></span>
                 </Link>
@@ -80,7 +103,11 @@ export const Layout = ({ children }) => {
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -95,8 +122,8 @@ export const Layout = ({ children }) => {
                   to={link.path}
                   className={`block text-sm uppercase tracking-wider py-2 transition-colors ${
                     location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -117,20 +144,26 @@ export const Layout = ({ children }) => {
             {/* Brand */}
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-hakio text-lg">
-                  海
+                     <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-hakio text-xl transition-transform group-hover:scale-110">
+      <img 
+        src={logo} 
+        alt="Japanese Seafoods Shop Logo"
+        className="w-full h-full object-contain rounded-full"
+      />
+    </div>
                 </div>
-                <span className="font-hakio text-xl text-white">Japenese Seafoods Shop</span>
-              </div>
+            
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Bringing authentic Japanese seafood and ingredients to your table.
-                Experience the taste of Japan.
+                Bringing authentic Japanese seafood and ingredients to your
+                table. Experience the taste of Japan.
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-hakio text-lg mb-4 text-white">Quick Links</h4>
+              <h4 className="font-hakio text-lg mb-4 text-white">
+                Quick Links
+              </h4>
               <ul className="space-y-2">
                 {navLinks.map((link) => (
                   <li key={link.path}>
@@ -151,7 +184,7 @@ export const Layout = ({ children }) => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>Email: info@info.com</li>
                 <li>Phone: +977 1234 567890</li>
-                <li>Location: Kathmandu, Nepal</li>
+                <li>Location: Kathmandu, Jhamsikhel-Lalitpur, Nepal</li>
               </ul>
             </div>
           </div>
@@ -159,10 +192,14 @@ export const Layout = ({ children }) => {
           {/* Bottom Bar */}
           <div className="border-t border-border mt-8 pt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Japanese Seafoods Shops. All rights reserved.<br/>
-              Powered by <a href="https://lagarau.com/" style={{color:'white'}}>Lagarau</a>
+              © {new Date().getFullYear()} Japanese Seafoods Shops. All rights
+              reserved.
+              <br />
+              Powered by{" "}
+              <a href="https://lagarau.com/" style={{ color: "white" }}>
+                Lagarau
+              </a>
             </p>
-
           </div>
         </div>
       </footer>
@@ -170,4 +207,4 @@ export const Layout = ({ children }) => {
   );
 };
 
-export default Layout; 
+export default Layout;
