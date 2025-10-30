@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { MapPin, Phone, Clock, Facebook } from "lucide-react";
@@ -7,13 +6,6 @@ const Contact = () => {
   useEffect(() => {
     setVisible(true);
   }, []);
-=======
-import React from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { MapPin, Phone, Clock } from "lucide-react";
-
-const Contact = () => {
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -23,11 +15,7 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-<<<<<<< HEAD
       details: ["+977 984-1625102", "+977 985-1067529"],
-=======
-      details: ["+977 1234 567890", "+977 9876 543210"],
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -41,7 +29,6 @@ const Contact = () => {
       link: "https://www.facebook.com/jpgroceriesandseafood/",
     },
   ];
-<<<<<<< HEAD
   const mapData = [
     {
       src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.220428146147!2d85.3050534116155!3d27.679581276099206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19cfaaf22393%3A0x16a908a97b0459c7!2sJapanese%20Groceries%20%26%20Seafood%20Jhamsikhel-Lalitpur!5e0!3m2!1sen!2snp!4v1761800103681!5m2!1sen!2snp",
@@ -54,27 +41,6 @@ const Contact = () => {
       delay: "0.2s",
     },
   ];
-=======
-
-  const mapData = [
-    {
-      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11634.205256980451!2d85.29825653438859!3d27.703246703390956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1860ae22d385%3A0x7c2444e8284cef52!2sKalimati%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640068008",
-      title: "Kalimati Store",
-      delay: "0.2s",
-    },
-    {
-      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.221429036672!2d85.32013931506247!3d27.70994798279469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a63a7e8a5%3A0x7e8c4b7f6b9c8e2!2sThamel%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640201234",
-      title: "Thamel Store",
-      delay: "0.3s",
-    },
-    {
-      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.104496773586!2d85.3106972150625!3d27.71234598279327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18f8c4c6c7e3%3A0x2c4b7e9b8a4c8f2!2sBoudha%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640304567",
-      title: "Boudha Store",
-      delay: "0.4s",
-    },
-  ];
-
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
   const MapCard = ({ src, title, delay }) => (
     <Card
       className="border-border shadow-ink-strong overflow-hidden brush-reveal"
@@ -83,11 +49,7 @@ const Contact = () => {
       <div className="flex-1 aspect-[4/3] bg-muted relative">
         <iframe
           src={src}
-<<<<<<< HEAD
           className="w-full h-full border-0"
-=======
-          className="w-full h-[300px] border-0"
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -99,14 +61,9 @@ const Contact = () => {
       </div>
     </Card>
   );
-<<<<<<< HEAD
-=======
-
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
   return (
     <div className="min-h-fit">
       {/* Hero Section */}
-<<<<<<< HEAD
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
@@ -129,12 +86,6 @@ const Contact = () => {
           {/* Glass Blur Effect */}
           <div className="inline-block bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl">
             <h1 className="font-hakio text-5xl sm:text-6xl lg:text-7xl mb-6 text-white text-brush">
-=======
-      <section className="relative py-20 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="font-hakio text-5xl sm:text-6xl mb-6 text-foreground text-brush">
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
               Let us Connect
             </h1>
             <p className="text-lg sm:text-xl text-white max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -148,13 +99,8 @@ const Contact = () => {
       </section>
       {/* Contact Info Cards */}
       <section>
-<<<<<<< HEAD
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-16">
-=======
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-16">
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
@@ -190,14 +136,8 @@ const Contact = () => {
               </Card>
             ))}
           </div>
-<<<<<<< HEAD
           {/* Map Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-=======
-
-          {/* Map Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
             {mapData.map((map, index) => (
               <MapCard
                 key={index}
@@ -207,10 +147,6 @@ const Contact = () => {
               />
             ))}
           </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2
           {/* Why Choose Japanese Seafoods Shop */}
           <Card
             className="border-border shadow-ink brush-reveal mt-8"
@@ -279,9 +215,4 @@ const Contact = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 export default Contact;
-=======
-
-export default Contact;
->>>>>>> c1ee0790154adb3fdbaaf40d522eb6536e585bc2

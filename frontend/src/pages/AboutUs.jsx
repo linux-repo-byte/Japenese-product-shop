@@ -109,7 +109,7 @@ const AboutUs = () => {
                 A Journey of Taste
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Founded by Nepali youths with entusiash towords Japanese
+                Founded by Nepali youths with enthusiasm towords Japanese
                 culture, we bridge Himalayan and Japanese cultures with premium
                 imports like matcha, wasabi, miso and other seafood ingredients
                 for chefs and home cooks.
