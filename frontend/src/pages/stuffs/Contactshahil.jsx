@@ -63,41 +63,20 @@ const Contact = () => {
 
   return (
     <div className="min-h-fit">
-      {/* Hero Section with Japanese Background */}
-      <section
-        className="relative py-20 min-h-[75vh] flex items-center bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/japanese-background.jpg')`,
-          backgroundPosition: "center 20%",
-        }}
-      >
-        {/* Stronger Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/20 bg-gradient-to-b from-black/20 via-black/20 to-black/20" />
-
-        {/* Additional Text Enhancement Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
-
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="relative py-10 sm:py-20 bg-gradient-to-b from-muted/30 to-background"
+       style={{
+    backgroundImage: `url(${backgroundimg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat"
+  }}>
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1
-              className="font-hakio text-5xl sm:text-6xl mb-6 text-white text-brush drop-shadow-2xl animate-bounce-in"
-              style={{
-                textShadow:
-                  "3px 3px 6px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.7)",
-                fontWeight: "800",
-                lineHeight: "1.1",
-              }}
-            >
+            <h1 className="font-hakio text-5xl sm:text-6xl mb-6 text-foreground text-brush">
               Let us Connect
             </h1>
-            <p
-              className="text-lg text-white leading-relaxed drop-shadow-xl max-w-2xl mx-auto animate-bounce-in-delayed"
-              style={{
-                textShadow:
-                  "2px 2px 4px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)",
-                fontWeight: "600",
-              }}
-            >
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Have questions about our products or services? We'd love to hear
               from you. Reach out and let's start a conversation.
             </p>
@@ -196,35 +175,6 @@ const Contact = () => {
           </Card>
         </div>
       </section>
-
-      {/* Custom CSS for Bounce Animations */}
-      <style jsx>{`
-        @keyframes bounceIn {
-          0% {
-            opacity: 0;
-            transform: translateY(100px) scale(0.3);
-          }
-          50% {
-            opacity: 1;
-            transform: translateY(-20px) scale(1.05);
-          }
-          70% {
-            transform: translateY(10px) scale(0.9);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        .animate-bounce-in {
-          animation: bounceIn 1.2s ease-out;
-        }
-
-        .animate-bounce-in-delayed {
-          animation: bounceIn 1.2s ease-out 0.3s both;
-        }
-      `}</style>
     </div>
   );
 };
