@@ -1,29 +1,8 @@
-import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { Label } from "../components/ui/label";
-import { Badge } from "../components/ui/badge";
-import { toast } from "sonner";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import React from "react";
+import { Card, CardContent } from "../components/ui/card";
+import { MapPin, Phone, Clock } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -36,44 +15,50 @@ const Contact = () => {
       details: ["+977 1234 567890", "+977 9876 543210"],
     },
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      details: ["info@info.com", "support@support.com"],
-    },
-    {
       icon: <Clock className="w-6 h-6" />,
       title: "Hours",
       details: ["Sun - Fri: 9AM - 7PM", "Saturday: Closed"],
     },
   ];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const mapData = [
+    {
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11634.205256980451!2d85.29825653438859!3d27.703246703390956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1860ae22d385%3A0x7c2444e8284cef52!2sKalimati%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640068008",
+      title: "Kalimati Store",
+      delay: "0.2s",
+    },
+    {
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.221429036672!2d85.32013931506247!3d27.70994798279469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a63a7e8a5%3A0x7e8c4b7f6b9c8e2!2sThamel%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640201234",
+      title: "Thamel Store",
+      delay: "0.3s",
+    },
+    {
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.104496773586!2d85.3106972150625!3d27.71234598279327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18f8c4c6c7e3%3A0x2c4b7e9b8a4c8f2!2sBoudha%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640304567",
+      title: "Boudha Store",
+      delay: "0.4s",
+    },
+  ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Message sent successfully! We'll get back to you soon.", {
-        duration: 4000,
-      });
-      setIsSubmitting(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1500);
-  };
+  const MapCard = ({ src, title, delay }) => (
+    <Card
+      className="border-border shadow-ink-strong overflow-hidden brush-reveal"
+      style={{ animationDelay: delay }}
+    >
+      <div className="flex-1 aspect-[4/3] bg-muted relative">
+        <iframe
+          src={src}
+          className="w-full h-[300px] border-0"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-6 left-6 text-white">
+          <h3 className="font-hakio text-xl md:text-2xl mb-2">{title}</h3>
+        </div>
+      </div>
+    </Card>
+  );
 
   return (
     <div className="min-h-screen">
@@ -81,9 +66,8 @@ const Contact = () => {
       <section className="relative py-20 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-6 bg-primary text-white">Get in Touch</Badge>
             <h1 className="font-hakio text-5xl sm:text-6xl mb-6 text-foreground text-brush">
-              Let's Connect
+              Let us Connect
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Have questions about our products or services? We'd love to hear
@@ -94,9 +78,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20">
+      <section>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-16">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
@@ -120,205 +104,55 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form & Map */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Contact Form */}
-            <Card className="border-border shadow-ink-strong brush-reveal">
-              <CardHeader>
-                <CardTitle className="font-hakio text-3xl text-foreground">
-                  Send us a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground">
-                      Name *
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your full name"
-                      required
-                      className="border-border focus:border-primary"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground">
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        required
-                        className="border-border focus:border-primary"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-foreground">
-                        Phone
-                      </Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+977 1234 567890"
-                        className="border-border focus:border-primary"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-foreground">
-                      Subject *
-                    </Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="How can we help you?"
-                      required
-                      className="border-border focus:border-primary"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-foreground">
-                      Message *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us more about your inquiry..."
-                      rows={6}
-                      required
-                      className="border-border focus:border-primary resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full btn-brush bg-primary hover:bg-primary-dark text-white tracking-wide"
-                  >
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-5 w-5" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Map/Image Placeholder */}
-            <div className="space-y-6">
-              <Card
-                className="border-border shadow-ink-strong overflow-hidden brush-reveal"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <div className="aspect-[4/3] bg-muted relative">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11634.205256980451!2d85.29825653438859!3d27.703246703390956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1860ae22d385%3A0x7c2444e8284cef52!2sKalimati%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1761640068008"
-                    class="w-full h-[450px] border-0"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="font-hakio text-2xl mb-2 ">
-                      Visit Our Store
-                    </h3>
-                    {/* <p className="text-white/90">Experience our products in person</p> */}
-                  </div>
-                </div>
-              </Card>
-
-              <Card
-                className="border-border shadow-ink brush-reveal"
-                style={{ animationDelay: "0.3s" }}
-              >
-                <CardContent className="p-6">
-                  <h3 className="font-hakio text-2xl mb-4 text-foreground">
-                    Why Choose Japenese Seafoods Shop?
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span className="text-muted-foreground">
-                        Direct imports from Japan ensuring authenticity
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span className="text-muted-foreground">
-                        Quality guaranteed on all products
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span className="text-muted-foreground">
-                        Expert advice on seafood selection and preparation
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span className="text-muted-foreground">
-                        Fast and reliable delivery across Nepal
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
+          {/* Map Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {mapData.map((map, index) => (
+              <MapCard
+                key={index}
+                src={map.src}
+                title={map.title}
+                delay={map.delay}
+              />
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-accent text-accent-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/landing-bg.png)`,
-            }}
-          />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="font-hakio text-4xl sm:text-5xl mb-6 text-white">
-            Ready to Order?
-          </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
-            Browse our selection of premium Japanese seafood and ingredients.
-            Fresh delivery guaranteed.
-          </p>
-          <Button
-            size="lg"
-            className="btn-brush bg-primary hover:bg-primary-dark text-white tracking-wide"
+          {/* Why Choose Japanese Seafoods Shop */}
+          <Card
+            className="border-border shadow-ink brush-reveal mt-8"
+            style={{ animationDelay: "0.5s" }}
           >
-            Shop Now
-          </Button>
+            <CardContent className="p-6">
+              <h3 className="font-hakio text-2xl md:text-3xl mb-4 text-foreground text-center">
+                Why Choose Japanese Seafoods Shop?
+              </h3>
+              <ul className="grid grid-cols-1 gap-4">
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span className="text-muted-foreground">
+                    Direct imports from Japan ensuring authenticity
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span className="text-muted-foreground">
+                    Quality guaranteed on all products
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span className="text-muted-foreground">
+                    Expert advice on seafood selection and preparation
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span className="text-muted-foreground">
+                    Fast and reliable delivery across Nepal
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>

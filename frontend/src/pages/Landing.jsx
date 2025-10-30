@@ -16,52 +16,52 @@ const Landing = () => {
   const products = [
     {
       id: 1,
-      name: 'Premium Sashimi Platter',
-      category: 'Fresh Seafood',
+      name: 'Premium Japanese Platter',
+      // category: 'Fresh Seafood',
       price: 'NPR 3,500',
       image: 'https://images.unsplash.com/photo-1754211152988-c0622613211e',
       badge: 'Chef Select',
     },
     {
       id: 2,
-      name: 'Traditional Sushi Box',
-      category: 'Sushi',
+      name: 'Authentic Plathig',
+      // category: 'Sushi',
       price: 'NPR 2,800',
       image: 'https://images.unsplash.com/photo-1635452065566-9c89471bb86c',
       badge: 'Popular',
     },
     {
       id: 3,
-      name: 'Fresh Salmon & Roe',
-      category: 'Premium Fish',
+      name: 'Authentic Tams & Knives',
+      // category: 'Premium Fish',
       price: 'NPR 4,200',
       image: 'https://images.pexels.com/photos/1683545/pexels-photo-1683545.jpeg',
       badge: 'Premium',
     },
-    {
-      id: 4,
-      name: 'Sashimi Combination',
-      category: 'Mixed Selection',
-      price: 'NPR 3,200',
-      image: 'https://images.unsplash.com/photo-1534256958597-7fe685cbd745',
-      badge: 'New',
-    },
-    {
-      id: 5,
-      name: 'Colorful Sashimi Set',
-      category: 'Variety Pack',
-      price: 'NPR 3,800',
-      image: 'https://images.pexels.com/photos/2871756/pexels-photo-2871756.jpeg',
-      badge: 'Bestseller',
-    },
-    {
-      id: 6,
-      name: 'Fresh Sashimi Plate',
-      category: 'Daily Special',
-      price: 'NPR 2,900',
-      image: 'https://images.unsplash.com/photo-1712183718506-41a054650697',
-      badge: 'Today\'s Special',
-    },
+    // {
+    //   id: 4,
+    //   name: 'Sashimi Combination',
+    //   category: 'Mixed Selection',
+    //   price: 'NPR 3,200',
+    //   image: 'https://images.unsplash.com/photo-1534256958597-7fe685cbd745',
+    //   badge: 'New',
+    // },
+    // {
+    //   id: 5,
+    //   name: 'Colorful Sashimi Set',
+    //   category: 'Variety Pack',
+    //   price: 'NPR 3,800',
+    //   image: 'https://images.pexels.com/photos/2871756/pexels-photo-2871756.jpeg',
+    //   badge: 'Bestseller',
+    // },
+    // {
+    //   id: 6,
+    //   name: 'Fresh Sashimi Plate',
+    //   category: 'Daily Special',
+    //   price: 'NPR 2,900',
+    //   image: 'https://images.unsplash.com/photo-1712183718506-41a054650697',
+    //   badge: 'Today\'s Special',
+    // },
   ];
 
   const features = [
@@ -91,7 +91,7 @@ const Landing = () => {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/landing-bg.png)`,
+              backgroundImage: `url(${process.env.PUBLIC_URL}/landing-bg.jpg)`,
               backgroundPosition: 'center',
             }}
           />
@@ -103,9 +103,9 @@ const Landing = () => {
         <div className={`container mx-auto px-4 z-10 text-center transition-all duration-1000 ${
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <Badge className="mb-6 bg-primary/90 text-white hover:bg-primary px-6 py-2 text-sm">
+          {/* <Badge className="mb-6 bg-primary/90 text-white hover:bg-primary px-6 py-2 text-sm">
             Authentic Japanese Seafood
-          </Badge>
+          </Badge> */}
           
           <h1 className="font-hakio text-5xl sm:text-6xl lg:text-7xl mb-6 text-white text-brush">
             Taste the Ocean,
@@ -172,8 +172,7 @@ const Landing = () => {
               Featured Collection
             </Badge>
             <h2 className="font-hakio text-4xl sm:text-5xl mb-4 text-foreground">
-              Premium Selection
-            </h2>
+What we Offers ?            </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Handpicked seafood and ingredients from the finest Japanese markets
             </p>
@@ -227,7 +226,7 @@ const Landing = () => {
       {/* CTA Section */}
       <section className="py-20 bg-accent text-accent-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className={`absolute inset-0 bg-cover bg-center`} style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/landing-bg.png)` }} />
+          <div className={`absolute inset-0 bg-cover bg-center`} style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/landing-bg.jpg)` }} />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="font-hakio text-4xl sm:text-5xl mb-6 text-white">
