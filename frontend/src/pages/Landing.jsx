@@ -19,14 +19,12 @@ const Landing = () => {
       name: "Authentic Japanese seafood",
       price: "NPR 3,500",
       image: "https://images.unsplash.com/photo-1754211152988-c0622613211e",
-      badge: "Chef Select",
     },
     {
       id: 2,
       name: "Japanese groceries",
       price: "NPR 2,800",
       image: "https://images.unsplash.com/photo-1635452065566-9c89471bb86c",
-      badge: "Popular",
     }, 
   ];
 
@@ -52,6 +50,7 @@ const Landing = () => {
   ];
 
   return (
+    //landing page All work done by Aayush Bartaula
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -153,24 +152,24 @@ const Landing = () => {
             </p>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Products Grid Product section By Aayush Bartaula*/}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
                 key={product.id}
                 className="group overflow-hidden hover-lift border-border shadow-ink hover:shadow-ink-strong brush-reveal"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden ">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <Badge className="absolute top-3 right-3 bg-primary text-white">
+                  {/* <Badge className="absolute top-3 right-3 bg-primary text-white">
                     {product.badge}
-                  </Badge>
+                  </Badge> */}
                 </div>
                 <CardContent className="p-6">
                   <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">
@@ -198,7 +197,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section by Aayush Bartaula */}
       <section className="py-20 bg-accent text-accent-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
@@ -232,3 +231,4 @@ const Landing = () => {
 };
 
 export default Landing;
+//All project Structure is done by Aayush Bartaula
