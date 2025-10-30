@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from '../assets/image-logo.png';
-
+import logo from "../assets/image-logo.png";
+import fab from "../assets/facebook.png";
 
 export const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,37 +40,17 @@ export const Layout = ({ children }) => {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-    
-{/* Logo */}
-{/* <Link to="/" className="flex items-center space-x-2 group">
-  <div className="relative">
-    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
-      <img 
-        src={logo} 
-        alt="Japanese Seafoods Shop Logo"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </div>
-  <span className="font-hakio text-2xl text-foreground group-hover:text-primary transition-colors">
-    Japanese Seafoods Shop
-  </span>
-</Link> */}
-
-
-{/* Logo */}
-<Link to="/" className="flex items-center space-x-2 group">
-  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
-    <img 
-      src={logo}
-      alt="Japanese Seafoods Shop Logo"
-      className="w-full h-full object-cover"
-    />
-  </div>
-  {/* <span className="font-hakio text-2xl text-foreground group-hover:text-primary transition-colors">
-  </span> */}
-</Link>
-
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-2 group">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                <img
+                  src={logo}
+                  alt="Japanese Seafoods Shop Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+        
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -144,15 +124,15 @@ export const Layout = ({ children }) => {
             {/* Brand */}
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                     <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-hakio text-xl transition-transform group-hover:scale-110">
-      <img 
-        src={logo} 
-        alt="Japanese Seafoods Shop Logo"
-        className="w-full h-full object-contain rounded-full"
-      />
-    </div>
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-hakio text-xl transition-transform group-hover:scale-110">
+                  <img
+                    src={logo}
+                    alt="Japanese Seafoods Shop Logo"
+                    className="w-full h-full object-contain rounded-full"
+                  />
                 </div>
-            
+              </div>
+
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Bringing authentic Japanese seafood and ingredients to your
                 table. Experience the taste of Japan.
@@ -179,12 +159,24 @@ export const Layout = ({ children }) => {
             </div>
 
             {/* Contact Info */}
+
             <div>
               <h4 className="font-hakio text-lg mb-4 text-white">Contact</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Email: info@info.com</li>
-                <li>Phone: +977 1234 567890</li>
-                <li>Location: Kathmandu, Jhamsikhel-Lalitpur, Nepal</li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/jpgroceriesandseafood?rdid=mjoD75Dmqasz6k4M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YsF1qCphN%2F"
+                    className="inline-block"
+                  >
+                    <img
+                      src={fab}
+                      alt="Facebook"
+                      className="w-8 h-8 hover:opacity-80 transition-opacity"
+                    />
+                  </a>
+                </li>
+                <li>Phone: +977 9851067529</li>
+                <li>Location: Kathmandu, Jhamsikhel-Lalitpur, Nepal/Pokhara</li>
               </ul>
             </div>
           </div>
